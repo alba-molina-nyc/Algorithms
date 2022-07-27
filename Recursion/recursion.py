@@ -21,9 +21,9 @@ def openRussianDoll(doll):
     else: 
         print(openRussianDoll(doll-1), 'else statement') # good place for a breakpoint
 
-openRussianDoll(doll=10)
+# openRussianDoll(doll=10)
 
-
+# ------------------------------------------------------------------------------------------------------------------------------
 """
 HOW recursion works --> 2 conditions
 1. method calls itself
@@ -36,4 +36,29 @@ def recursionMethod(parameters):
         return some value
     else:
         recursionMethod(modified parameters)
+"""
+
+
+def firstMethod():
+    secondMethod()
+    print("i am the first method")
+
+def secondMethod():
+    thirdMethod()
+    print("i am the third method")
+
+def thirdMethod():
+    fourthMethod()
+    print("i am the third method")
+
+def fourthMethod():
+    print("i am the fourth method")
+
+firstMethod()
+
+# ------------------------------------------------------------------------------------------------------------------------------
+"""
+STEPS
+1- identify the RECURSIVE CASE (where the function keeps calling itself)
+2- identify BASE CASE - the STOP criteria
 """
