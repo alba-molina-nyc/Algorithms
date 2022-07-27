@@ -18,10 +18,31 @@ function name(parameter1, parameter2, parameter3) {
 
 
 function openRussianDoll(doll) {
-    if(doll=1){
+    if(doll==1){
         console.log('All dolls are open')
     }else{
         openRussianDoll(doll-1)
     }
   }
 openRussianDoll(10);
+
+
+
+/*
+HOW recursion works --> 2 conditions
+1. method calls itself
+2. exit from inifite loop
+
+function recursionMethod(parameter) {
+    if(exist from condition satisfied) {
+        return some value
+    } else {
+        recursionMethod(modified paramenter)
+    }
+}
+
+recursionMethod();
+
+
+*/
+
