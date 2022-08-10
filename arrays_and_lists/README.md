@@ -5,6 +5,8 @@ every single item is associated with an index.
 - Main advantage of arrays is the random access of items based on idndex
 - Static -> size does not change
 - Dynamic -> size does change
+  
+---
 
 ## Operations
 
@@ -68,6 +70,8 @@ array = [10, 42, 'Adam', 2, 1]
 array[2] = 'Kevin' # to update Adam to Kevin 
 ```
 
+---
+
 ### Linear Search o(n)
 
 - iterate through items one by one to find max
@@ -97,6 +101,8 @@ for i in array2:  # 2 iterate through and define a given varibale in the array
 print(f'{min}, this is the min number')
 ```
 
+---
+
 ## Numpy (the library used for handling arrays)
 
 - The problem with `lists-python's built in ds` data structures is that list (built in data structures to python) stores references to the integer objects
@@ -109,9 +115,10 @@ print(f'{min}, this is the min number')
 
 ## Reverse Arrays in Place
 
-Given an A array of integers - reverse this A array in linear running time using constant memory
+Given an A array of integers - reverse this A array in linear running time using constant memory 
 
 ```python
+# EXPLANATION
 array = [12, 6, 2, 1, 9, 10, 3]
          ⬆️                  ⬆️
          lowIndex            highIndex
@@ -137,6 +144,7 @@ array = [3, 10, 9, 1, 2, 6, 12]
 ```
 
 ```python
+# THE CODE 
 """ Reverse an array in place .. i.e-> input is [1,2,3,4,5] output -> [5,4,3,2,1] """
 
 def reverseArray(nums):
@@ -154,5 +162,53 @@ def reverseArray(nums):
 # reverseArray(nums=[1,2,3,4,5])
 ```
 
+---
+
+### Palindrome Problem
+
+a palindrome is a string that reads the same forward and backward 
+
+- radar
+
+- madam
+
+PYTHON SOLUTION
+
 ```python
+""" design an optimal algorithm for checking whether a given string is a palindrome or not"""
+
+def isPalindrome(s):
+    if s == s[::-1]:
+        print(s[::-1], 'here')
+        return True
+    
+    return False
+# isPalindrome(s='madam')
+```
+  
+EXPLANATION - uses the solution from [reverse_in_place_solution_above](array_list/01_reverse_in_place.py) but refactored for string case
+
+```python
+# -------------------------------------------------Understanding Under the Hood-----------------------------------------------------------------------------
+def is_palindrome(s):
+    original_string = s
+    reversed_string = reverse(s) # this is what we have implemented in the previous lecture in O(n), so we pass in that function and make minor changes to fit for string case 
+
+    if original_string == reversed_string: # check if the original string = reverse then return True else False
+        return True 
+    return False
+
+def reverse(data):
+    data = list(data) # 1. convert string into list of characters 
+    # 1o- set pointers to first and last items
+    start_index = 0 # point to first item ...
+    end_index = len(data)-1 # point to last item ...  -1 bc index start at zero
+    
+    # 2o- while end > start 
+    while end_index > start_index: 
+        data[start_index], data[end_index] = data[end_index], data[start_index] # 3o swap two items in the list data structures 
+        start_index = start_index + 1 # increment start index by 1
+        end_index = end_index - 1 # decrement end index by 1
+
+    return ''.join(data) # transforms list of letter into a string
 ```

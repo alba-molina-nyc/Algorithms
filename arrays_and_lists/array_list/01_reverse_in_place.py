@@ -1,8 +1,6 @@
 """Reverse an array in place
 i.e-> input is [1,2,3,4,5] output -> [5,4,3,2,1]"""
 
-
-
 def reverseArray(nums):
     # 1- set pointers to first and last items
     start_index = 0 # point to first item ...
@@ -16,8 +14,6 @@ def reverseArray(nums):
 
 
 # reverseArray(nums=[1,2,3,4,5])
-
-
 if __name__ == '__main__':
     
     n = [1, 2, 3, 4]
