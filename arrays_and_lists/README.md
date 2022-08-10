@@ -97,5 +97,62 @@ for i in array2:  # 2 iterate through and define a given varibale in the array
 print(f'{min}, this is the min number')
 ```
 
+## Numpy (the library used for handling arrays)
+
+- The problem with `lists-python's built in ds` data structures is that list (built in data structures to python) stores references to the integer objects
+  - stored in different memory locations
+  - so storing a lot of items in lists has a huge memory complexity
+- And `numpy arrays` are stored in a continuous block in the memory
+  - AKA the items are next to each other
+
+------
+
+## Reverse Arrays in Place
+
+Given an A array of integers - reverse this A array in linear running time using constant memory
+
+```python
+array = [12, 6, 2, 1, 9, 10, 3]
+         ⬆️                  ⬆️
+         lowIndex            highIndex
+
+# 1 store ref to first item and the last 
+# 2 keep running the algorithm while the lowIndex < highIndex
+# 3 keep swapping items
+# 4 in every iteration increment the lowIndex (move up the list) and decrement highIndex (move down the list)
+
+array = [3, 6, 2, 1, 9, 10, 12]
+          # ⬆️            ⬆️
+            # lowIndex    highIndex
+
+array = [3, 10, 9, 1, 2, 6, 12]
+            #   ⬆️    ⬆️
+        # lowIndex    highIndex
+
+array = [3, 10, 9, 1, 2, 6, 12]
+                  #⬆️    
+                  #⬆️
+          #lowIndex  highIndex
+# CRUCIAL : terminate the algorithm when lowIndex == highIndex 
+```
+
+```python
+""" Reverse an array in place .. i.e-> input is [1,2,3,4,5] output -> [5,4,3,2,1] """
+
+def reverseArray(nums):
+    # 1- set pointers to first and last items
+    start_index = 0 # point to first item ...
+    end_index = len(nums)-1 # point to last item ...  -1 bc index start at zero
+    
+    # 2- while end > start 
+    while end_index > start_index: 
+        nums[start_index], nums[end_index] = nums[end_index], nums[start_index] # 3 swap two items in the list data structures 
+        start_index = start_index + 1 # increment start index by 1
+        end_index = end_index - 1 # decrement end index by 1
+
+
+# reverseArray(nums=[1,2,3,4,5])
+```
+
 ```python
 ```
