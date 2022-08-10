@@ -212,3 +212,67 @@ def reverse(data):
 
     return ''.join(data) # transforms list of letter into a string
 ```
+
+---
+
+### Reverse integer (Integer Version)
+
+- Given 1234 -> you want to end up with 4321
+- bc it is an integer we have to use a different operator 
+
+```python
+integer = 1234
+
+# ➡️ we are after the last digit in every iteration 
+#     ~ we can get this via modulo operator: the last digit is the remainer when dividing by 10
+
+while (n < 0):
+    remainder = n % 10
+    n = n / 10 
+    reversed = reversed * 10 + remainder
+
+# ➡️ we have to make sure we remove that digit from the original number
+#     ~ so we just have to divide the original number by 10
+
+""" ⭐️ Iteration 1: 
+remainder = 1234 / 10 = 4
+n = 123
+reversed = 0 * 10 + 4 = 4 
+
+⭐️ Iteration 2: 
+remainder = 123 / 10 = 3
+n = 12
+reversed = 4 * 10 + 3 = 43
+
+⭐️ Iteration 3: 
+remainder = 12 / 10 = 2
+n = 1
+reversed = 43 * 10 + 2 = 432 
+
+⭐️ Iteration 4: 
+remainder = 12 / 10 = 1
+n = 0
+reversed = 432 * 10 + 2 = 4321  """
+```
+
+SOLUTION
+
+```python
+"""Write an efficient algorithm that reverses a given integer --- EX:  if input of algo is 1234 then output is 4321"""
+
+def reverse_integer(n):
+    reversed_integer = 0
+    remainder = 0 
+
+    while n > 0:
+        remainder = n % 10
+        reversed_integer = reversed_integer * 10 + remainder
+        n = n // 10
+        print(reversed_integer, 'this is the reversed inside the while')
+
+
+    print(reversed_integer, 'this is the reversed')
+
+    return reversed_integer
+
+```
