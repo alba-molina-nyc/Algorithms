@@ -110,12 +110,14 @@ print(f'{min}, this is the min number')
   - so storing a lot of items in lists has a huge memory complexity
 - And `numpy arrays` are stored in a continuous block in the memory
   - AKA the items are next to each other
+  
+------_
 
-------
+[Interview Question 1](/array_list/01_reverse_in_place.py)
 
-## Reverse Arrays in Place
+### Reverse Arrays in Place
 
-Given an A array of integers - reverse this A array in linear running time using constant memory 
+Given an A array of integers - reverse this A array in linear running time using constant memory
 
 ```python
 # EXPLANATION
@@ -143,50 +145,21 @@ array = [3, 10, 9, 1, 2, 6, 12]
 # CRUCIAL : terminate the algorithm when lowIndex == highIndex 
 ```
 
-```python
-# THE CODE 
-""" Reverse an array in place .. i.e-> input is [1,2,3,4,5] output -> [5,4,3,2,1] """
-
-def reverseArray(nums):
-    # 1- set pointers to first and last items
-    start_index = 0 # point to first item ...
-    end_index = len(nums)-1 # point to last item ...  -1 bc index start at zero
-    
-    # 2- while end > start 
-    while end_index > start_index: 
-        nums[start_index], nums[end_index] = nums[end_index], nums[start_index] # 3 swap two items in the list data structures 
-        start_index = start_index + 1 # increment start index by 1
-        end_index = end_index - 1 # decrement end index by 1
-
-
-# reverseArray(nums=[1,2,3,4,5])
-```
+[The code](/array_list/01_reverse_in_place.py)
 
 ---
 
 ### Palindrome Problem
 
-a palindrome is a string that reads the same forward and backward 
+[Interview question 2](/array_list/02_palindrome.py)
+
+a palindrome is a string that reads the same forward and backward
 
 - radar
 
 - madam
 
-PYTHON SOLUTION
-
-```python
-""" design an optimal algorithm for checking whether a given string is a palindrome or not"""
-
-def isPalindrome(s):
-    if s == s[::-1]:
-        print(s[::-1], 'here')
-        return True
-    
-    return False
-# isPalindrome(s='madam')
-```
-  
-EXPLANATION - uses the solution from [reverse_in_place_solution_above](array_list/01_reverse_in_place.py) but refactored for string case
+EXPLANATION
 
 ```python
 # -------------------------------------------------Understanding Under the Hood-----------------------------------------------------------------------------
@@ -213,12 +186,16 @@ def reverse(data):
     return ''.join(data) # transforms list of letter into a string
 ```
 
+- the solution uses the solution from [reverse in place solution](array_list/01_reverse_in_place.py) but refactored for string case
+
 ---
 
 ### Reverse integer (Integer Version)
 
+[interview question 3](/array_list/03_reverse_integer.py)
+
 - Given 1234 -> you want to end up with 4321
-- bc it is an integer we have to use a different operator 
+- bc it is an integer we have to use a different operator
 
 ```python
 integer = 1234
@@ -255,24 +232,28 @@ n = 0
 reversed = 432 * 10 + 2 = 4321  """
 ```
 
-SOLUTION
+[reverse integer solution](/array_list/03_reverse_integer.py)
+
+---
+
+### Anagrams
+
+[Interview question 4](/array_list/04_anagram.py)
+
+Construct an algorithm to check whether two words (or phrases) are anagrams or not
+
+- an anagram is a word or a phrase formed by re-arranging the letters of a different word or phrase, typically using all the original letters exactly once
+  - ex: restful ➡️ fluster
+
+to check if it is an anagram:
+
+1. check the letters and sort them
+2. iterate through the strings and check whether the characters are matching or not by comparing on a one by one basis
 
 ```python
-"""Write an efficient algorithm that reverses a given integer --- EX:  if input of algo is 1234 then output is 4321"""
-
-def reverse_integer(n):
-    reversed_integer = 0
-    remainder = 0 
-
-    while n > 0:
-        remainder = n % 10
-        reversed_integer = reversed_integer * 10 + remainder
-        n = n // 10
-        print(reversed_integer, 'this is the reversed inside the while')
-
-
-    print(reversed_integer, 'this is the reversed')
-
-    return reversed_integer
+    # 1. if length of string differ -> not anagram -> return False
+    if len(str1) != len(str2):
+        return False
 
 ```
+
