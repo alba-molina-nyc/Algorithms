@@ -247,13 +247,26 @@ Construct an algorithm to check whether two words (or phrases) are anagrams or n
 
 to check if it is an anagram:
 
-1. check the letters and sort them
-2. iterate through the strings and check whether the characters are matching or not by comparing on a one by one basis
+1. if the words do not have the same amount of letters then it is not an anagram
+2. sort the letters
+3. then iterate through the strings and check whether the characters are matching or not by comparing on a one by one basis
 
 ```python
     # 1. if length of string differ -> not anagram -> return False
     if len(str1) != len(str2):
         return False
+
+    # 2. sort the letters of the strings (this is the bottle neck)
+    str1 = sorted(str1)
+    str2 = sorted(str2)
+
+    # 3. and then compare the letters with the same indexes 
+    for i in range(len(str1)):
+        print(str1[i], 'str1')
+        print(str2[i], 'str2')
+        if str1[i] != str2[i]:
+            return False
+    return True
 
 ```
 
