@@ -7,15 +7,15 @@ def dutch_flag_problem(nums, pivot=1):
         # current element (item at index j) is 0
         if nums[j] < pivot:
             swap(nums, i, j)
-            i =+ 1
-            j =+ 1
-            # current element (item at index j is 1
+            i = i + 1
+            j = j + 1
+        # current element (item at index j is 1
         elif nums[j] > pivot:
-            swap(nums, j, k)
-            k =- 1
-            # current element(item at index j) is 2
+            swap(nums, j, k) # pass in swap function
+            k = k - 1
+        # current element(item at index j) is 2
         else:
-            j =- 1
+            j = j + 1
 
     return nums
 
