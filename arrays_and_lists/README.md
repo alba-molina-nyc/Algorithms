@@ -270,3 +270,86 @@ to check if it is an anagram:
 
 ```
 
+---
+
+### Dutch National Flag
+
+[Interview question 5](/array_list/05_dutch_flag.py)
+
+Given an A array of integers - 0,1 and 2 (3 diff values). Sort this A array in linear running time using constant memory
+
+- constant memory -> not allowed to use additional data structures in order to store the items
+
+```python
+
+starting_container = [0, 1, 2, 1, 2, 0, 0] # you start with thi
+
+[0, 0, 0, 1, 1, 2, 2] # the aim is to end up this
+```
+
+Explanation
+
+because there are `three possible colors(values)`, so `use three indexes` i,j -> share the same value and k -> points to last value in the array
+
+i ⬅️ 0
+j ⬅️ 0
+k ⬅️ size of array - 1 (last value in array)
+
+(k is set to the index of the last item)
+while j <= k: you have three options
+if j < mid
+if j > mid
+else j = mid
+
+the `middle` item or the `pivot` item is the integer 1, because we have three items 0, 1, 2 so 1 ➡️ is the middle or pivot number
+
+```python
+starting_container = [0, 1, 2, 1, 2, 0, 0]
+                      ⬆️                ⬆️
+                     i,j                k
+
+# keep running the algorithm until while j <= k (so j essentially tracks the actual item)
+
+# in every iteration we have to compate the j item with the pivot (middle) item which is 1 
+
+[0, 1, 2, 1, 2, 0, 0]
+ ⬆️                ⬆️
+i,j                k
+```
+
+0 < `pivot item` (1)
+so swap index i and j and then increment both indexes
+
+```python
+[0, 1, 2, 1, 2, 0, 0]
+    ⬆️             ⬆️
+    i,j            k
+```
+
+1 = `pivot item` (1)
+so increment j by 1
+
+```python
+[0, 1, 2, 1, 2, 0, 0]
+    ⬆️ ⬆️          ⬆️
+    i  j           k
+```
+
+2 > `pivot item` (1)
+so swap j with k
+and decrement k by one
+meaning the last item is in its sorted order
+
+```python
+[0, 1, 0, 1, 2, 0, 2]
+    ⬆️ ⬆️       ⬆️
+    i  j        k
+```
+
+0 < `pivot item` (1)
+so swap j with i
+and increment  indexes by 1
+
+etc. etc.
+
+[Dutch National Problem Implementation](/array_list/05_dutch_flag.py)
