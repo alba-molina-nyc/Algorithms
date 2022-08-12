@@ -298,8 +298,19 @@ k ⬅️ size of array - 1 (last value in array)
 (k is set to the index of the last item)
 while j <= k: you have three options
 if j < mid
+
+`swap i and j`
+`increment i`
+`increment j`
+  
 if j > mid
+
+`swap j with k`
+`increment j`
+`decrement k`
+
 else j = mid
+`increment j`
 
 the `middle` item or the `pivot` item is the integer 1, because we have three items 0, 1, 2 so 1 ➡️ is the middle or pivot number
 
@@ -355,3 +366,27 @@ etc. etc.
 [Dutch National Problem Implementation](/array_list/05_dutch_flag.py)
 
 ---
+
+### Trapping Water Problem
+
+[Trapping Water Problem Implementation](/array_list/06_trapping_water_problem.py)
+
+Find the maximum amount of water that can be trapped within a given set of bars where each bar's width is 1 unit
+
+![/arrays_and_lists/array_list/06_trap_water_problem.png](/array_list/06_trap_water_problem.png)
+
+
+```python
+water_container = [2, 1, 3, 1, 4]
+```
+
+`THEORY`
+
+`SOLUTION`
+
+`CODE`
+
+
+```python
+# enter code here
+```
