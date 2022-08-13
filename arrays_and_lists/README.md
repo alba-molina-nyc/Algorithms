@@ -381,6 +381,9 @@ water_container = [2, 1, 3, 1, 4]
 ```
 
 `THEORY`
+1. figure out maxLeft values
+2. figure out maxRight values
+
 
 `SOLUTION`
 
