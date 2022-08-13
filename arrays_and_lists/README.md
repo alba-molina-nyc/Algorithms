@@ -381,15 +381,43 @@ water_container = [2, 1, 3, 1, 4]
 ```
 
 `THEORY`
-1. figure out maxLeft values
-2. figure out maxRight values
 
+1. initialize base case of having less than (3) indexes
+2. initialize maxLeft values
+3. initialize maxRight values
+4. deal with `maxLeft` by iterating from left to right (dont start with first value bc first value has 0 by default)
+   1. and consider the previous max values
+
+   ```python
+                # previous index     previous indexes' height
+                         ⬇️                ⬇️
+   left_max[i] = max(left_max[i - 1], heights[i - 1]) # as you are iterating you are continuously making sure you are storing the max number in left_max variable
+   ```
+
+5. deal with `maxRight` by iterating from right to left, don't start with last value bc last value has 0 by default
+6. initialize `trapped` var because this is where you are going to store the summed up trapped rain water units
 
 `SOLUTION`
+[Trapping Water Problem Implementation](/array_list/06_trapping_water_problem.py)
 
 `CODE`
 
-
 ```python
-# enter code here
+# 1. if the length of the array is less than 3 indexes then return 0 because then it means it cannot trap water
+if len(array_name) < 3:
+    return 0 
+
+# 2. initialize maxLeft
+left_max = [0 for _ in range(len(heights))] 
+
+# 3. initialize maxRight
+right_max = [0 for _ in range(len(heights))]
+
+# 4. deal with maxLeft and store the max index & height combo in max_left var
+for i in range(1, len(heights)):
+    left_max[i] = max(left_max[i - 1], heights[i - 1]) #make sure the max left item is the maximum aka storing maximum value so far
+
+# 5. deal with maxRight and store the max index & height combo in max_right var
+for i in range(len(heights) -2, -1, -1): 
+    right_max[i] = max(right_max[i + 1], heights[i + 1])
 ```
