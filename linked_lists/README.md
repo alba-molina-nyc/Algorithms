@@ -27,3 +27,15 @@ list = [1, 25, 2, 3]
 - but the advantage is that you do not need to shift items!
 
 ---
+
+## Inserting to Linked Lists
+
+`end` - inserting to the end of a linkedlist is a slow operation o(n) because you need to loop all the way through until you hit the node that has `none` or `null`
+
+ex: 
+
+```python
+
+LL = [2, 10, -2, 5, 19]
+
+```
