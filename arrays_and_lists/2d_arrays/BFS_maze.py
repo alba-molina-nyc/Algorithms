@@ -15,3 +15,26 @@ The (0,0) is the source and (4,4) is the destination. 0 represents walls or obst
 include in the solution.
 
 Good luck!"""
+# Using BFS
+from tracemalloc import start
+
+
+def shortestPath(maze):
+    # 0 -> obstacles, 1 -> valid
+    print(maze)
+
+    
+   #  0,0 = start
+   #  4,4 = end
+
+    pass
+
+shortestPath([
+   ['S', 1, 1, 1,  1],
+   [0  , 1, 1, 1,  1],
+   [0  , 0, 0, 0,  1],
+   [1  , 0, 1, 1,  1],
+   [0  , 0, 0, 1, 'D']
+])
+
+# answer 10? can go ^ V, < >
